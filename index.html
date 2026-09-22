@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>优淘 · YOUTAO | 次世代赛博购物终端</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- 引入拆分样式文件 -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            cyber: {
+              bg: '#080d1a',
+              card: '#0f172a',
+              cyan: '#00f0ff',
+              pink: '#ff007a',
+              amber: '#ffb800',
+              emerald: '#00ffa3',
+              border: '#1e293b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-cyber-bg text-slate-100 font-sans min-h-screen flex flex-col font-size-normal transition-all duration-300">
+
+  <!-- 顶部状态与无障碍控制栏 -->
+  <div class="bg-slate-900/90 border-b border-cyber-border text-xs text-slate-300 px-4 py-2 flex flex-wrap justify-between items-center gap-2 sticky top-0 z-50 backdrop-blur-md">
+    <div class="flex items-center gap-3">
+      <span class="flex items-center gap-1.5 text-cyber-cyan font-mono">
+        <span class="w-2 h-2 rounded-full bg-cyber-cyan animate-pulse"></span>
+        量子节点网络：在线
+      </span>
+      <span class="hidden sm:inline text-slate-500">|</span>
+      <span class="hidden sm:inline text-slate-400">全域加密通信已就绪</span>
+    </div>
+
+    <!-- 无障碍辅助调节系统 -->
+    <div class="flex items-center gap-4">
+      <div class="flex items-center gap-1 bg-slate-800/80 px-2 py-0.5 rounded border border-slate-700 text-[11px]">
+        <span class="text-slate-400 mr-1">字号:</span>
+        <button id="fontSizeNormalBtn" class="px-1.5 py-0.5 rounded bg-cyber-cyan/20 text-cyber-cyan hover:bg-cyber-cyan/30 transition">标准</button>
+        <button id="fontSizeLargeBtn" class="px-1.5 py-0.5 rounded hover:bg-slate-700 text-slate-300 transition">大号</button>
+        <button id="fontSizeXlBtn" class="px-1.5 py-0.5 rounded hover:bg-slate-700 text-slate-300 transition">特大</button>
+      </div>
+
+      <div class="flex items-center gap-1 bg-slate-800/80 px-2 py-0.5 rounded border border-slate-700 text-[11px]">
+        <span class="text-slate-400 mr-1">币种:</span>
+        <button id="currencyCnyBtn" class="px-1.5 py-0.5 rounded bg-cyber-cyan/20 text-cyber-cyan transition font-mono">¥ CNY</button>
+        <button id="currencyUsdBtn" class="px-1.5 py-0.5 rounded hover:bg-slate-700 text-slate-300 transition font-mono">$ USD</button>
+      </div>
+
+      <button id="highContrastToggle" class="flex items-center gap-1 text-slate-300 hover:text-cyber-cyan transition" title="高对比度护眼模式">
+        <i data-lucide="sun" class="w-3.5 h-3.5"></i>
+        <span>护眼对比</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- 头部主导航 -->
+  <header class="border-b border-cyber-border/70 bg-cyber-card/80 backdrop-blur-md px-4 lg:px-8 py-4 sticky top-8 z-40">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <!-- Logo -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyber-cyan via-indigo-600 to-cyber-pink p-0.5 flex items-center justify-center neon-border">
+          <div class="w-full h-full bg-cyber-bg rounded-[10px] flex items-center justify-center text-cyber-cyan font-black text-xl">
+            优
+          </div>
+        </div>
+        <div>
+          <h1 class="text-2xl font-black tracking-wider bg-gradient-to-r from-cyber-cyan via-white to-cyber-pink bg-clip-text text-transparent">
+            优淘 <span class="text-xs font-mono font-normal tracking-normal text-cyber-cyan/80 ml-1">YOUTAO</span>
+          </h1>
+          <p class="text-[11px] text-slate-400">全域未来好物聚集地 · 包容共生</p>
+        </div>
+      </div>
+
+      <!-- 搜索区 -->
+      <div class="w-full md:max-w-xl">
+        <div class="relative flex items-center">
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="搜索未来装备、AR视界、全天候机能、星空美食..." 
+            class="w-full bg-slate-950/80 border border-cyber-border focus:border-cyber-cyan focus:ring-1 focus:ring-cyber-cyan rounded-xl py-2.5 pl-10 pr-24 text-sm text-slate-100 placeholder-slate-500 transition outline-none"
+          >
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 pointer-events-none"></i>
+          <button id="searchSubmitBtn" class="absolute right-1.5 px-4 py-1.5 bg-gradient-to-r from-cyber-cyan to-blue-600 hover:opacity-90 text-slate-950 font-bold text-xs rounded-lg transition">
+            检索
+          </button>
+        </div>
+        <!-- 搜索热词 -->
+        <div class="flex items-center gap-2 mt-2 text-xs text-slate-400 overflow-x-auto no-scrollbar">
+          <span class="text-cyber-cyan flex items-center gap-1 shrink-0"><i data-lucide="flame" class="w-3 h-3"></i>热搜:</span>
+          <button class="hot-tag hover:text-cyber-cyan transition shrink-0" data-keyword="AR">AR导光眼镜</button>
+          <button class="hot-tag hover:text-cyber-cyan transition shrink-0" data-keyword="三防">纳米温控风衣</button>
+          <button class="hot-tag hover:text-cyber-cyan transition shrink-0" data-keyword="机械">桌面机械犬</button>
+          <button class="hot-tag hover:text-cyber-cyan transition shrink-0" data-keyword="冻干">寰宇冷萃咖啡</button>
+        </div>
+      </div>
+
+      <!-- 右侧购物车与交互入口 -->
+      <div class="flex items-center gap-3">
+        <button id="openCartBtn" class="relative flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-cyber-border text-sm font-medium transition group">
+          <i data-lucide="shopping-bag" class="w-4 h-4 text-cyber-cyan group-hover:scale-110 transition"></i>
+          <span>能量补给舱</span>
+          <span id="cartCountBadge" class="px-2 py-0.2 text-xs font-mono font-bold bg-cyber-pink text-white rounded-full">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主体内容区 -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-6 w-full flex-grow flex flex-col gap-6">
+    
+    <!-- 全息广告/公告展台 -->
+    <div class="relative overflow-hidden rounded-2xl border border-cyber-cyan/30 bg-gradient-to-r from-blue-950/60 via-slate-900/80 to-purple-950/60 p-6 md:p-8">
+      <div class="scanline"></div>
+      <div class="relative z-10 max-w-2xl">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/40 text-cyber-cyan text-xs font-mono mb-3">
+          <i data-lucide="sparkles" class="w-3 h-3"></i>
+          全域首发 · 2026 普惠科技季
+        </div>
+        <h2 class="text-2xl md:text-3xl font-black text-white leading-tight mb-2">
+          探索未来生活，从优淘开始
+        </h2>
+        <p class="text-sm text-slate-300 mb-4">
+          无门槛适配全球网络，全品类前沿智能好物即刻送达。全平台支持极速星轨配送与无忧护航保障。
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <button id="exploreAllBtn" class="px-4 py-2 rounded-xl bg-cyber-cyan text-slate-950 font-bold text-xs hover:bg-cyan-300 transition flex items-center gap-1.5">
+            浏览全系商品 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </button>
+          <div class="flex items-center gap-4 text-xs text-slate-400 font-mono pl-2">
+            <span>🛡️ 15天无理由换新</span>
+            <span>⚡ 次日量子仓投递</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 筛选与品类控制条 -->
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-cyber-border pb-4">
+      <!-- 品类胶囊列表 -->
+      <div id="categoryTabs" class="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-1 no-scrollbar">
+        <button data-cat="all" class="cat-btn px-4 py-1.5 rounded-lg text-xs font-semibold bg-cyber-cyan text-slate-950 transition">全部好物</button>
+        <button data-cat="tech" class="cat-btn px-4 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:text-cyber-cyan transition">智能数码</button>
+        <button data-cat="wear" class="cat-btn px-4 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:text-cyber-cyan transition">机能穿戴</button>
+        <button data-cat="companion" class="cat-btn px-4 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:text-cyber-cyan transition">仿生伴侣</button>
+        <button data-cat="food" class="cat-btn px-4 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:text-cyber-cyan transition">深空美食</button>
+      </div>
+
+      <!-- 排序与附加过滤 -->
+      <div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end text-xs">
+        <div class="flex items-center gap-1 bg-slate-900 border border-slate-700 rounded-lg p-1">
+          <button id="sortGeneralBtn" class="sort-btn px-2.5 py-1 rounded bg-slate-800 text-cyber-cyan font-medium">综合</button>
+          <button id="sortSalesBtn" class="sort-btn px-2.5 py-1 rounded hover:bg-slate-800 text-slate-400">销量</button>
+          <button id="sortPriceBtn" class="sort-btn px-2.5 py-1 rounded hover:bg-slate-800 text-slate-400 flex items-center gap-0.5">
+            <span>价格</span>
+            <span id="priceSortIcon">↕</span>
+          </button>
+        </div>
+
+        <label class="flex items-center gap-1.5 text-slate-300 cursor-pointer select-none">
+          <input type="checkbox" id="freeShippingCheck" class="rounded border-slate-700 text-cyber-cyan focus:ring-0 bg-slate-900">
+          <span>星轨包邮</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- 商品网格展示区 -->
+    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    </div>
+
+    <!-- 空状态展示 -->
+    <div id="emptyState" class="hidden flex-col items-center justify-center py-20 text-center">
+      <div class="w-16 h-16 rounded-full bg-slate-800/80 flex items-center justify-center text-slate-500 mb-3">
+        <i data-lucide="package-search" class="w-8 h-8 text-cyber-cyan"></i>
+      </div>
+      <h3 class="text-base font-bold text-slate-200 mb-1">未检索到匹配的量子物品</h3>
+      <p class="text-xs text-slate-400 mb-4">尝试调整检索关键词或清空分类筛选条件</p>
+      <button id="resetFiltersBtn" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyber-cyan text-xs font-semibold transition border border-cyber-border">
+        重置筛选条件
+      </button>
+    </div>
+
+  </main>
+
+  <!-- 底部页脚 -->
+  <footer class="border-t border-cyber-border/80 bg-slate-950/60 py-8 px-4 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-2 h-2 rounded-full bg-cyber-cyan"></div>
+        <span class="text-slate-300 font-bold">优淘 · YOUTAO</span>
+        <span>© 2026 次世代普惠电商平台</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="https://github.com" target="_blank" class="hover:text-cyber-cyan transition">GitHub 仓库开源托管</a>
+        <span class="text-slate-700">|</span>
+        <span>安全量子协议保护</span>
+        <span class="text-slate-700">|</span>
+        <span>无障碍辅助友好标准</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 侧边滑出抽屉购物车（能量补给舱） -->
+  <div id="cartDrawerBackdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+  <aside id="cartDrawer" class="fixed top-0 right-0 w-full max-w-md h-full bg-cyber-card border-l border-cyber-cyan/30 z-50 shadow-2xl flex flex-col translate-x-full transition-transform duration-300 ease-in-out">
+    <div class="p-4 border-b border-cyber-border flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <i data-lucide="shopping-bag" class="w-5 h-5 text-cyber-cyan"></i>
+        <h3 class="font-bold text-base text-white">能量补给舱 (购物车)</h3>
+      </div>
+      <button id="closeCartBtn" class="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- 购物车物品列表 -->
+    <div id="cartItemList" class="flex-grow overflow-y-auto p-4 space-y-3">
+    </div>
+
+    <!-- 底部结算栏 -->
+    <div class="p-4 border-t border-cyber-border bg-slate-900/90 space-y-3">
+      <div class="flex items-center justify-between text-xs text-slate-400">
+        <span>物品总额</span>
+        <span id="cartSubtotal" class="font-mono text-slate-200">¥ 0.00</span>
+      </div>
+      <div class="flex items-center justify-between text-xs text-cyber-cyan">
+        <span>立减优惠 (普惠补贴)</span>
+        <span id="cartDiscount" class="font-mono">-¥ 0.00</span>
+      </div>
+      <div class="flex items-center justify-between text-base font-bold text-white pt-1 border-t border-slate-800">
+        <span>实付额</span>
+        <span id="cartTotal" class="font-mono text-cyber-cyan text-lg">¥ 0.00</span>
+      </div>
+      <button id="checkoutBtn" class="w-full py-3 rounded-xl bg-gradient-to-r from-cyber-cyan to-blue-600 hover:opacity-90 font-bold text-slate-950 text-sm transition">
+        量子结转出库
+      </button>
+    </div>
+  </aside>
+
+  <!-- 商品 SKU 详情弹窗 Modal -->
+  <div id="productModal" class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-cyber-card border border-cyber-cyan/40 rounded-2xl w-full max-w-2xl overflow-hidden shadow-2xl relative animate-in fade-in zoom-in duration-200">
+      <button id="closeModalBtn" class="absolute top-4 right-4 p-1.5 rounded-xl bg-slate-800/80 text-slate-400 hover:text-white hover:bg-slate-700 transition z-10">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div id="modalContent" class="grid grid-cols-1 md:grid-cols-2">
+      </div>
+    </div>
+  </div>
+
+  <!-- 引入拆分交互逻辑 -->
+  <script src="js/app.js"></script>
+</body>
+</html>

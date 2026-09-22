@@ -1,0 +1,53 @@
+/* 自定义赛博朋克微光特效与排版增强 */
+
+/* 霓虹细线边框 */
+.neon-border {
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.25), inset 0 0 10px rgba(0, 240, 255, 0.15);
+}
+
+/* 展台全息扫描线 */
+.scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.8), transparent);
+  animation: scan 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes scan {
+  0% { top: 0%; opacity: 0.2; }
+  50% { top: 100%; opacity: 0.9; }
+  100% { top: 0%; opacity: 0.2; }
+}
+
+/* 隐藏滚动条但保留功能 */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* 全年龄字号动态调节控制 */
+body.font-size-normal {
+  font-size: 14px;
+}
+body.font-size-large {
+  font-size: 16px;
+}
+body.font-size-xl {
+  font-size: 18px;
+}
+
+/* 高对比度模式支持 */
+body.high-contrast {
+  background-color: #000000 !important;
+}
+body.high-contrast .bg-cyber-card {
+  background-color: #0b0f17 !important;
+  border-color: #00f0ff !important;
+}
