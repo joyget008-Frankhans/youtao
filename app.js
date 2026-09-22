@@ -1,8 +1,8 @@
-// ================= 商品数据集合 (可直接在此处扩充商品) =================
+// ================= 商品全域矩阵数据 =================
 const products = [
   {
     id: 1,
-    title: "OmniLens 神经光导 AR 智能镜",
+    title: "OmniLens 8K 神经光导 AR 智能镜",
     category: "tech",
     categoryName: "智能数码",
     priceCny: 1899,
@@ -13,11 +13,11 @@ const products = [
     tag: "爆款首发",
     image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=600&auto=format&fit=crop&q=80",
     specs: ["超感青瞳", "深空哑黑", "星芒纯银"],
-    description: "次世代 8K 微光波导模组，支持实时多国语言神经元同传同显，仅重 38 克。"
+    description: "次世代 8K 微光波导模组，支持实时跨语言同声传显，全重仅 38g，适配全天候无感佩戴。"
   },
   {
     id: 2,
-    title: "Aegis-X 纳米级三防全天候温控机能风衣",
+    title: "Aegis-X 纳米三防石墨烯温控机能风衣",
     category: "wear",
     categoryName: "机能穿戴",
     priceCny: 649,
@@ -28,11 +28,11 @@ const products = [
     tag: "智能恒温",
     image: "https://images.unsplash.com/photo-1544441893-675973e31985?w=600&auto=format&fit=crop&q=80",
     specs: ["曜石黑 (M)", "曜石黑 (L)", "极光银 (L)"],
-    description: "石墨烯瞬时微热传导，气孔自主排湿，轻松抵御零下 15 度至酷热环境。"
+    description: "石墨烯瞬时微热传导，纳米自呼吸微孔防水透气，无惧极端严寒与潮湿暴雨。"
   },
   {
     id: 3,
-    title: "CyberPaws 桌面仿生机械宠物伴侣 (二代)",
+    title: "CyberPaws 二代桌面仿生机械伴侣犬",
     category: "companion",
     categoryName: "仿生伴侣",
     priceCny: 1299,
@@ -42,12 +42,12 @@ const products = [
     freeShipping: true,
     tag: "独家好物",
     image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&auto=format&fit=crop&q=80",
-    specs: ["机械原色", "荧光蓝定制版"],
-    description: "内置微型多模态情绪感知引擎，无需喂养，具备温润机械触感与生动反馈。"
+    specs: ["机械原色", "荧光蓝特别版"],
+    description: "内置多模态情绪感知引擎，支持手势交互与自主巡航，金属亲肤温润触感反馈。"
   },
   {
     id: 4,
-    title: "星穹萃取 深空零压冻干咖啡晶仓盒装",
+    title: "星穹超萃 深空零下55度冻干冷萃咖啡晶仓",
     category: "food",
     categoryName: "深空美食",
     priceCny: 89,
@@ -55,14 +55,14 @@ const products = [
     rating: 4.9,
     stock: 350,
     freeShipping: false,
-    tag: "人气回购",
+    tag: "人次回购",
     image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600&auto=format&fit=crop&q=80",
-    specs: ["24颗标准舱", "48颗超能备灾舱"],
-    description: "深空零下 55 度冻干萃取，3秒冷水速溶，保留 99.2% 原生坚果与柑橘香气。"
+    specs: ["24颗标准装", "48颗分享装"],
+    description: "超低温真空结晶锁香工艺，冷热水3秒速溶，还原 99.2% 现磨阿拉比卡原生风味。"
   },
   {
     id: 5,
-    title: "Pulse-Ring 微型全天候量子生命体征指环",
+    title: "Pulse-Ring 钛合金全天候生命体征指环",
     category: "tech",
     categoryName: "智能数码",
     priceCny: 429,
@@ -72,12 +72,12 @@ const products = [
     freeShipping: true,
     tag: "无感监测",
     image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&auto=format&fit=crop&q=80",
-    specs: ["钛金属 10号", "钛金属 12号", "钛金属 14号"],
-    description: "医研级心率、血氧与压力连续跟踪，一次充电待机运行 14 个自然日。"
+    specs: ["钛晶黑 10号", "钛晶银 12号", "陨石灰 14号"],
+    description: "医疗级微循环监测，全天候持续追踪心率、血氧与睡眠节律，支持 14 天超长续航。"
   },
   {
     id: 6,
-    title: "Terra 模块化耐磨防磁通勤背包",
+    title: "Terra 模块化防磁耐磨机能通勤包",
     category: "wear",
     categoryName: "机能穿戴",
     priceCny: 319,
@@ -85,91 +85,99 @@ const products = [
     rating: 4.6,
     stock: 64,
     freeShipping: false,
-    tag: "通勤甄选",
+    tag: "防磁甄选",
     image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&auto=format&fit=crop&q=80",
     specs: ["深空黑 20L", "星云灰 24L"],
-    description: "防磁防割裂 CORDURA 面料，附带磁吸快拆拓展模块与独立防震电脑仓。"
+    description: "防磁防割裂 CORDURA 面料，配备外挂快拆磁吸锁扣与悬浮减震数码独立收纳仓。"
   }
 ];
 
-// ================= 应用状态 =================
+// ================= 终端运行状态 =================
 let currentCategory = "all";
 let searchKeyword = "";
 let sortMode = "general"; // general, sales, priceAsc, priceDesc
 let onlyFreeShipping = false;
-let currentCurrency = "CNY"; // CNY, USD (汇率按 1 USD = 7.2 CNY)
+let currentCurrency = "CNY"; // CNY, USD
 const USD_RATE = 7.2;
 
 let cart = [];
 
-// ================= 渲染商品列表 =================
+// ================= 核心商品网格渲染函数 =================
 function renderProducts() {
   const grid = document.getElementById("productGrid");
   const empty = document.getElementById("emptyState");
 
-  let list = products.filter(item => {
-    const matchCat = currentCategory === "all" || item.category === currentCategory;
+  if (!grid) return;
+
+  const filtered = products.filter(item => {
+    const matchCat = (currentCategory === "all") || (item.category === currentCategory);
     const matchSearch = item.title.toLowerCase().includes(searchKeyword.toLowerCase()) ||
                         item.description.toLowerCase().includes(searchKeyword.toLowerCase());
     const matchShip = !onlyFreeShipping || item.freeShipping;
     return matchCat && matchSearch && matchShip;
   });
 
-  // 排序
+  // 排序算法
   if (sortMode === "sales") {
-    list.sort((a, b) => b.sales - a.sales);
+    filtered.sort((a, b) => b.sales - a.sales);
   } else if (sortMode === "priceAsc") {
-    list.sort((a, b) => a.priceCny - b.priceCny);
+    filtered.sort((a, b) => a.priceCny - b.priceCny);
   } else if (sortMode === "priceDesc") {
-    list.sort((a, b) => b.priceCny - a.priceCny);
+    filtered.sort((a, b) => b.priceCny - a.priceCny);
   }
 
-  if (list.length === 0) {
+  if (filtered.length === 0) {
     grid.innerHTML = "";
-    empty.classList.remove("hidden");
-    empty.classList.add("flex");
+    if (empty) {
+      empty.classList.remove("hidden");
+      empty.classList.add("flex");
+    }
     return;
   }
 
-  empty.classList.add("hidden");
-  empty.classList.remove("flex");
+  if (empty) {
+    empty.classList.add("hidden");
+    empty.classList.remove("flex");
+  }
 
-  grid.innerHTML = list.map(item => {
-    const displayPrice = currentCurrency === "CNY" 
+  grid.innerHTML = filtered.map(item => {
+    const priceText = currentCurrency === "CNY" 
       ? `¥ ${item.priceCny}` 
       : `$ ${(item.priceCny / USD_RATE).toFixed(1)}`;
 
     return `
-      <div class="group bg-cyber-card border border-cyber-border hover:border-cyber-cyan/60 rounded-2xl overflow-hidden transition duration-300 flex flex-col hover:-translate-y-1 shadow-lg hover:shadow-cyan-500/10">
+      <div class="group bg-cyber-card border border-cyber-border hover:border-cyber-cyan/70 rounded-2xl overflow-hidden transition duration-300 flex flex-col hover:-translate-y-1 shadow-lg hover:shadow-cyan-500/10">
+        <!-- 封面与状态角标 -->
         <div class="relative w-full h-48 overflow-hidden bg-slate-950">
-          <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90 group-hover:opacity-100">
-          <span class="absolute top-3 left-3 px-2 py-0.5 rounded-md text-[11px] font-bold bg-cyber-cyan text-slate-950">${item.tag}</span>
-          ${item.freeShipping ? `<span class="absolute top-3 right-3 px-2 py-0.5 rounded-md text-[10px] bg-slate-900/80 text-cyber-cyan border border-cyber-cyan/30">包邮</span>` : ''}
+          <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90 group-hover:opacity-100" loading="lazy">
+          <span class="absolute top-3 left-3 px-2 py-0.5 rounded text-[10px] font-bold bg-cyber-cyan text-slate-950 shadow">${item.tag}</span>
+          ${item.freeShipping ? `<span class="absolute top-3 right-3 px-2 py-0.5 rounded text-[10px] bg-slate-950/80 text-cyber-cyan border border-cyber-cyan/40">包邮</span>` : ''}
         </div>
 
+        <!-- 详细信息 -->
         <div class="p-4 flex flex-col flex-grow justify-between gap-3">
           <div>
             <div class="flex items-center justify-between text-[11px] text-slate-400 mb-1">
               <span>${item.categoryName}</span>
-              <span class="font-mono text-cyber-amber flex items-center gap-0.5">★ ${item.rating}</span>
+              <span class="font-mono text-cyber-amber">★ ${item.rating}</span>
             </div>
             <h3 class="font-bold text-sm text-slate-100 group-hover:text-cyber-cyan transition line-clamp-2">
               ${item.title}
             </h3>
-            <p class="text-xs text-slate-400 mt-1 line-clamp-2">${item.description}</p>
+            <p class="text-xs text-slate-400 mt-1 line-clamp-2 leading-relaxed">${item.description}</p>
           </div>
 
-          <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between">
+          <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between">
             <div>
-              <span class="text-lg font-black text-cyber-cyan font-mono">${displayPrice}</span>
-              <span class="text-[10px] text-slate-500 block">已交付 ${item.sales}+</span>
+              <span class="text-lg font-black text-cyber-cyan font-mono">${priceText}</span>
+              <span class="text-[10px] text-slate-500 block font-mono">已交付: ${item.sales}+</span>
             </div>
             <div class="flex items-center gap-1.5">
-              <button onclick="openDetail(${item.id})" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs transition">
+              <button onclick="openDetail(${item.id})" class="px-2.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300 text-xs transition">
                 规格
               </button>
-              <button onclick="quickAddToCart(${item.id})" class="px-3 py-1.5 rounded-lg bg-cyber-cyan hover:bg-cyan-300 text-slate-950 text-xs font-bold transition flex items-center gap-1">
-                加购
+              <button onclick="quickAddToCart(${item.id})" class="px-3 py-1.5 rounded-lg bg-gradient-to-r from-cyber-cyan to-blue-500 hover:brightness-110 text-slate-950 text-xs font-black transition shadow">
+                + 加购
               </button>
             </div>
           </div>
@@ -177,13 +185,9 @@ function renderProducts() {
       </div>
     `;
   }).join("");
-
-  if (window.lucide) {
-    lucide.createIcons();
-  }
 }
 
-// ================= 购物车逻辑 =================
+// ================= 购物车核心业务 =================
 function quickAddToCart(productId) {
   const item = products.find(p => p.id === productId);
   if (!item) return;
@@ -191,9 +195,9 @@ function quickAddToCart(productId) {
 }
 
 function addToCart(item, spec, quantity) {
-  const existIndex = cart.findIndex(c => c.id === item.id && c.spec === spec);
-  if (existIndex > -1) {
-    cart[existIndex].quantity += quantity;
+  const existing = cart.find(c => c.id === item.id && c.spec === spec);
+  if (existing) {
+    existing.quantity += quantity;
   } else {
     cart.push({
       id: item.id,
@@ -209,26 +213,27 @@ function addToCart(item, spec, quantity) {
 }
 
 function updateCartUI() {
-  const countBadge = document.getElementById("cartCountBadge");
+  const badge = document.getElementById("cartCountBadge");
   const listEl = document.getElementById("cartItemList");
   const subtotalEl = document.getElementById("cartSubtotal");
   const discountEl = document.getElementById("cartDiscount");
   const totalEl = document.getElementById("cartTotal");
 
   const totalCount = cart.reduce((sum, i) => sum + i.quantity, 0);
-  countBadge.textContent = totalCount;
+  if (badge) badge.textContent = totalCount;
+
+  if (!listEl) return;
 
   if (cart.length === 0) {
     listEl.innerHTML = `
-      <div class="py-16 text-center text-slate-500 text-xs flex flex-col items-center gap-2">
-        <i data-lucide="package-open" class="w-8 h-8 text-slate-600"></i>
-        <span>补给舱目前为空</span>
+      <div class="py-20 text-center text-slate-500 text-xs flex flex-col items-center gap-2">
+        <span class="text-3xl">📦</span>
+        <span>补给舱当前为空，快去选购好物吧</span>
       </div>
     `;
-    subtotalEl.textContent = "¥ 0.00";
-    discountEl.textContent = "-¥ 0.00";
-    totalEl.textContent = "¥ 0.00";
-    if (window.lucide) lucide.createIcons();
+    if (subtotalEl) subtotalEl.textContent = "¥ 0.00";
+    if (discountEl) discountEl.textContent = "-¥ 0.00";
+    if (totalEl) totalEl.textContent = "¥ 0.00";
     return;
   }
 
@@ -238,12 +243,12 @@ function updateCartUI() {
     const priceDisplay = currentCurrency === "CNY" ? `¥ ${c.priceCny}` : `$ ${(c.priceCny / USD_RATE).toFixed(1)}`;
 
     return `
-      <div class="flex items-center gap-3 p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+      <div class="flex items-center gap-3 p-2.5 rounded-xl bg-slate-900/90 border border-slate-800">
         <img src="${c.image}" class="w-14 h-14 rounded-lg object-cover bg-slate-950">
         <div class="flex-grow min-w-0">
           <h4 class="text-xs font-bold text-slate-100 truncate">${c.title}</h4>
           <span class="text-[10px] text-cyber-cyan block">规格: ${c.spec}</span>
-          <span class="text-xs font-mono text-slate-200">${priceDisplay}</span>
+          <span class="text-xs font-mono text-slate-300">${priceDisplay}</span>
         </div>
         <div class="flex items-center gap-1">
           <button onclick="changeCartQty(${index}, -1)" class="w-6 h-6 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs flex items-center justify-center">-</button>
@@ -254,20 +259,18 @@ function updateCartUI() {
     `;
   }).join("");
 
-  const discount = subtotal > 500 ? 50 : 0;
+  const discount = subtotal >= 500 ? 50 : 0;
   const finalTotal = Math.max(0, subtotal - discount);
 
   if (currentCurrency === "CNY") {
-    subtotalEl.textContent = `¥ ${subtotal.toFixed(2)}`;
-    discountEl.textContent = `-¥ ${discount.toFixed(2)}`;
-    totalEl.textContent = `¥ ${finalTotal.toFixed(2)}`;
+    if (subtotalEl) subtotalEl.textContent = `¥ ${subtotal.toFixed(2)}`;
+    if (discountEl) discountEl.textContent = `-¥ ${discount.toFixed(2)}`;
+    if (totalEl) totalEl.textContent = `¥ ${finalTotal.toFixed(2)}`;
   } else {
-    subtotalEl.textContent = `$ ${(subtotal / USD_RATE).toFixed(2)}`;
-    discountEl.textContent = `-$ ${(discount / USD_RATE).toFixed(2)}`;
-    totalEl.textContent = `$ ${(finalTotal / USD_RATE).toFixed(2)}`;
+    if (subtotalEl) subtotalEl.textContent = `$ ${(subtotal / USD_RATE).toFixed(2)}`;
+    if (discountEl) discountEl.textContent = `-$ ${(discount / USD_RATE).toFixed(2)}`;
+    if (totalEl) totalEl.textContent = `$ ${(finalTotal / USD_RATE).toFixed(2)}`;
   }
-
-  if (window.lucide) lucide.createIcons();
 }
 
 function changeCartQty(index, delta) {
@@ -281,6 +284,7 @@ function changeCartQty(index, delta) {
 function toggleCartDrawer(open) {
   const drawer = document.getElementById("cartDrawer");
   const backdrop = document.getElementById("cartDrawerBackdrop");
+  if (!drawer || !backdrop) return;
   if (open) {
     backdrop.classList.remove("hidden");
     drawer.classList.remove("translate-x-full");
@@ -290,14 +294,13 @@ function toggleCartDrawer(open) {
   }
 }
 
-// ================= SKU 详情弹窗 =================
+// ================= SKU 规格详情弹窗 =================
 function openDetail(productId) {
   const item = products.find(p => p.id === productId);
   if (!item) return;
 
   const modal = document.getElementById("productModal");
   const content = document.getElementById("modalContent");
-
   const priceDisplay = currentCurrency === "CNY" ? `¥ ${item.priceCny}` : `$ ${(item.priceCny / USD_RATE).toFixed(1)}`;
 
   content.innerHTML = `
@@ -306,16 +309,16 @@ function openDetail(productId) {
     </div>
     <div class="p-6 flex flex-col justify-between gap-4">
       <div>
-        <span class="text-xs text-cyber-cyan font-mono">${item.categoryName} · 序列号 #${item.id}</span>
+        <span class="text-xs text-cyber-cyan font-mono">${item.categoryName} · 配额编号 #${item.id}</span>
         <h2 class="text-lg font-bold text-white mt-1">${item.title}</h2>
         <div class="flex items-center gap-3 my-2 text-xs">
           <span class="text-xl font-black text-cyber-cyan font-mono">${priceDisplay}</span>
-          <span class="text-slate-400">剩余配额: ${item.stock}</span>
+          <span class="text-slate-400">实时库存: ${item.stock}</span>
         </div>
         <p class="text-xs text-slate-300 leading-relaxed">${item.description}</p>
         
         <div class="mt-4">
-          <label class="text-xs text-slate-400 block mb-2 font-medium">选择配置/规格：</label>
+          <label class="text-xs text-slate-400 block mb-2 font-medium">配置规格：</label>
           <div class="flex flex-wrap gap-2" id="modalSpecGroup">
             ${item.specs.map((spec, i) => `
               <button class="spec-btn px-3 py-1 rounded-lg text-xs border ${i === 0 ? 'border-cyber-cyan bg-cyber-cyan/20 text-cyber-cyan' : 'border-slate-700 bg-slate-800 text-slate-300'} transition" onclick="selectModalSpec(this, '${spec}')">
@@ -327,8 +330,8 @@ function openDetail(productId) {
       </div>
 
       <div class="flex items-center gap-3 pt-4 border-t border-slate-800">
-        <button id="confirmAddToCartBtn" class="flex-grow py-2.5 rounded-xl bg-cyber-cyan text-slate-950 font-bold text-xs hover:bg-cyan-300 transition">
-          加入能量补给舱
+        <button id="confirmAddToCartBtn" class="flex-grow py-3 rounded-xl bg-gradient-to-r from-cyber-cyan to-blue-600 text-slate-950 font-black text-xs hover:brightness-110 transition shadow">
+          确认调度进补给舱
         </button>
       </div>
     </div>
@@ -353,72 +356,79 @@ function openDetail(productId) {
   modal.classList.remove("hidden");
 }
 
-// ================= 事件监听与初始化 =================
-document.addEventListener("DOMContentLoaded", () => {
+// ================= 事件监听与 DOM 驱动初始化 =================
+function initApp() {
   renderProducts();
   updateCartUI();
 
-  // 分类切换
+  // 品类切换监听
   document.querySelectorAll(".cat-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       document.querySelectorAll(".cat-btn").forEach(b => {
         b.classList.remove("bg-cyber-cyan", "text-slate-950");
-        b.classList.add("bg-slate-800", "text-slate-300");
+        b.classList.add("bg-slate-900", "text-slate-300");
       });
       btn.classList.add("bg-cyber-cyan", "text-slate-950");
-      btn.classList.remove("bg-slate-800", "text-slate-300");
+      btn.classList.remove("bg-slate-900", "text-slate-300");
 
       currentCategory = btn.getAttribute("data-cat");
       renderProducts();
     });
   });
 
-  // 搜索
+  // 搜索框实时匹配
   const searchInput = document.getElementById("searchInput");
-  searchInput.addEventListener("input", (e) => {
-    searchKeyword = e.target.value.trim();
-    renderProducts();
-  });
-  document.getElementById("searchSubmitBtn").addEventListener("click", () => {
-    searchKeyword = searchInput.value.trim();
-    renderProducts();
-  });
+  if (searchInput) {
+    searchInput.addEventListener("input", (e) => {
+      searchKeyword = e.target.value.trim();
+      renderProducts();
+    });
+  }
+  const searchSubmitBtn = document.getElementById("searchSubmitBtn");
+  if (searchSubmitBtn) {
+    searchSubmitBtn.addEventListener("click", () => {
+      searchKeyword = searchInput ? searchInput.value.trim() : "";
+      renderProducts();
+    });
+  }
 
-  // 热搜词
+  // 实时热搜标签快捷填入
   document.querySelectorAll(".hot-tag").forEach(tag => {
     tag.addEventListener("click", () => {
       const kw = tag.getAttribute("data-keyword");
-      searchInput.value = kw;
+      if (searchInput) searchInput.value = kw;
       searchKeyword = kw;
       renderProducts();
     });
   });
 
-  // 排序
-  document.getElementById("sortGeneralBtn").addEventListener("click", function() {
+  // 综合排序
+  document.getElementById("sortGeneralBtn")?.addEventListener("click", function() {
     sortMode = "general";
     resetSortBtnStyles();
     this.classList.add("text-cyber-cyan", "bg-slate-800");
     renderProducts();
   });
 
-  document.getElementById("sortSalesBtn").addEventListener("click", function() {
+  // 销量排序
+  document.getElementById("sortSalesBtn")?.addEventListener("click", function() {
     sortMode = "sales";
     resetSortBtnStyles();
     this.classList.add("text-cyber-cyan", "bg-slate-800");
     renderProducts();
   });
 
-  document.getElementById("sortPriceBtn").addEventListener("click", function() {
+  // 价格升降序
+  document.getElementById("sortPriceBtn")?.addEventListener("click", function() {
     resetSortBtnStyles();
     this.classList.add("text-cyber-cyan", "bg-slate-800");
     const icon = document.getElementById("priceSortIcon");
     if (sortMode === "priceAsc") {
       sortMode = "priceDesc";
-      icon.textContent = "↓";
+      if (icon) icon.textContent = "↓";
     } else {
       sortMode = "priceAsc";
-      icon.textContent = "↑";
+      if (icon) icon.textContent = "↑";
     }
     renderProducts();
   });
@@ -431,49 +441,50 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // 包邮筛选
-  document.getElementById("freeShippingCheck").addEventListener("change", (e) => {
+  document.getElementById("freeShippingCheck")?.addEventListener("change", (e) => {
     onlyFreeShipping = e.target.checked;
     renderProducts();
   });
 
-  // 购物车抽屉开关
-  document.getElementById("openCartBtn").addEventListener("click", () => toggleCartDrawer(true));
-  document.getElementById("closeCartBtn").addEventListener("click", () => toggleCartDrawer(false));
-  document.getElementById("cartDrawerBackdrop").addEventListener("click", () => toggleCartDrawer(false));
+  // 购物车抽屉展开与关闭
+  document.getElementById("openCartBtn")?.addEventListener("click", () => toggleCartDrawer(true));
+  document.getElementById("closeCartBtn")?.addEventListener("click", () => toggleCartDrawer(false));
+  document.getElementById("cartDrawerBackdrop")?.addEventListener("click", () => toggleCartDrawer(false));
 
   // 模态弹窗关闭
-  document.getElementById("closeModalBtn").addEventListener("click", () => {
-    document.getElementById("productModal").classList.add("hidden");
+  document.getElementById("closeModalBtn")?.addEventListener("click", () => {
+    document.getElementById("productModal")?.classList.add("hidden");
   });
 
-  // 浏览全系好物
-  document.getElementById("exploreAllBtn").addEventListener("click", () => {
-    window.scrollTo({ top: 400, behavior: 'smooth' });
+  // 平滑滚动浏览全系
+  document.getElementById("exploreAllBtn")?.addEventListener("click", () => {
+    window.scrollTo({ top: 460, behavior: 'smooth' });
   });
 
-  // 重置筛选
-  document.getElementById("resetFiltersBtn").addEventListener("click", () => {
+  // 重置筛选状态
+  document.getElementById("resetFiltersBtn")?.addEventListener("click", () => {
     currentCategory = "all";
     searchKeyword = "";
-    searchInput.value = "";
+    if (searchInput) searchInput.value = "";
     onlyFreeShipping = false;
-    document.getElementById("freeShippingCheck").checked = false;
+    const check = document.getElementById("freeShippingCheck");
+    if (check) check.checked = false;
     renderProducts();
   });
 
-  // 结账结算模拟
-  document.getElementById("checkoutBtn").addEventListener("click", () => {
+  // 模拟出库结算
+  document.getElementById("checkoutBtn")?.addEventListener("click", () => {
     if (cart.length === 0) {
-      alert("补给舱为空，无法办理出库。");
+      alert("补给舱当前为空，请先选购商品！");
       return;
     }
-    alert("🚀 订单已接入量子网络，正在安排无人货舱配送！");
+    alert("🚀 结算完成！已向量子配送中枢提交调度指令，即刻出库。");
     cart = [];
     updateCartUI();
     toggleCartDrawer(false);
   });
 
-  // 字号调节
+  // 无障碍字号调节
   const body = document.body;
   document.getElementById("fontSizeNormalBtn").onclick = () => {
     body.className = body.className.replace(/font-size-\w+/g, '') + ' font-size-normal';
@@ -485,7 +496,7 @@ document.addEventListener("DOMContentLoaded", () => {
     body.className = body.className.replace(/font-size-\w+/g, '') + ' font-size-xl';
   };
 
-  // 币种切换
+  // 双币种动态换算
   document.getElementById("currencyCnyBtn").onclick = function() {
     currentCurrency = "CNY";
     this.classList.add("bg-cyber-cyan/20", "text-cyber-cyan");
@@ -501,8 +512,15 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCartUI();
   };
 
-  // 高对比护眼切换
+  // 高对比护眼滤镜
   document.getElementById("highContrastToggle").onclick = () => {
     body.classList.toggle("high-contrast");
   };
-});
+}
+
+// 页面加载完成后立即注水
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initApp);
+} else {
+  initApp();
+}
